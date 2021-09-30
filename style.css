@@ -2,18 +2,15 @@ img[alt="img"]{
     width:200px;
     margin-left:50px;
 }
-
 td,tr{
     font-family: Georgia, serif;
     font-weight: bold;
     border: 1px solid rgb(108, 87, 126);
     background-color: rgb(198, 178, 218);
-    
 }
 tbody{
     padding: 50px;
     border: 5px solid rgb(72, 25, 116);
-
 }
 .row{
     background-color: rgb(170, 170, 238);
@@ -21,8 +18,7 @@ tbody{
     box-shadow: 20px;
 }
 #img{
-    
-background: radial-gradient(circle, rgb(0, 182, 253) 0%, rgb(73, 111, 127) 100%);
+    background: radial-gradient(circle, rgb(0, 182, 253) 0%, rgb(73, 111, 127) 100%);
 }
 img:hover{
     -webkit-transform:scale(1.1);
@@ -30,11 +26,6 @@ img:hover{
     transition: 0.8s;
 }
 button[type="button"]{
-    width: 100px;
-    margin-left : 5px;
+    width: 200px;
+    margin-bottom: 30px;
 }
-/* .img-container{
-    width: 700px;
-    height: auto;
-    margin: 50px;
-} */
