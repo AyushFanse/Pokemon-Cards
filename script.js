@@ -1,6 +1,8 @@
 var url = `https://pokeapi.co/api/v2/pokemon?offset=0&limit=5`;
 var lastUrl = `https://pokeapi.co/api/v2/pokemon?offset=50&limit=5`;
 const po_container = document.querySelector('.po_container');
+var pokeElement=document.createElement('div');
+let pokeInnerHTML =" ";
 
 const takePoke = async () => {
         await getPoke();
@@ -9,12 +11,11 @@ const takePoke = async () => {
 const getPoke = async pokeGivenData => {
     const res = await fetch(url);
     const pokemonDetails = await res.json();
-    
     const pokeName =pokemonDetails.results;
-        
+    
     // creating a loop to print all five pokemons at a time
-        
-    for (var i=0; i <5;i++)
+ 
+    for (var i=0; i <5; i++) 
     {
         const pokeUrl = pokeName[i].url;
         const Name =pokeName[i].name.toUpperCase(); // Getting name of the pokemon
@@ -43,13 +44,12 @@ const getPoke = async pokeGivenData => {
                 
         // creating  div and adding needed values to it.
         
-        const pokeElement=document.createElement('div');
-        pokeElement.classList.add('collectedData');
+        pokeElement.setAttribute('class','collectedData');
         document.getElementsByClassName("img-container");
         
         // Creating HTML for the card data
 
-        const pokeInnerHTML = 
+        const dataPoke = 
         `<div class="img-container">
                 <table class="table">
                         <div class="row">
@@ -80,9 +80,11 @@ const getPoke = async pokeGivenData => {
                         </tbody>
                 </table>
         </div>`;
-        
+
+        // adding dollected data in the pokeInnerHTML element
+        pokeInnerHTML+=dataPoke;
         pokeElement.innerHTML=pokeInnerHTML;
-        po_container.appendChild(pokeElement);
+        po_container.append(pokeElement);
     } 
 }
 
@@ -91,11 +93,11 @@ takePoke();
 
 // Creating func for previous onclick event
 const prePoka = async pokeGivenData => 
-    {
+    {   
+        pokeInnerHTML=" ";
         const res = await fetch(url);
         const pokemonDetails = await res.json();
         url=pokemonDetails.previous;
-        // po_container.parentNode.removeChild(pokeElement);
         if(pokemonDetails.previous==null)
             {
                 alert("Your are already on first page")
@@ -109,7 +111,8 @@ const prePoka = async pokeGivenData =>
    
 // Creating func for next onclick event
 const nextPoka = async pokeGivenData => 
-    {
+    {   
+        pokeInnerHTML=" ";
         const res = await fetch(url);
         const pokemonDetails = await res.json();
         url=pokemonDetails.next;
