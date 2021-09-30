@@ -6,13 +6,14 @@ const takePoke = async () => {
         await getPoke();
 }
 
-const getPoke = async pokeGivenData => 
-{
+const getPoke = async pokeGivenData => {
     const res = await fetch(url);
     const pokemonDetails = await res.json();
     
     const pokeName =pokemonDetails.results;
+        
     // creating a loop to print all five pokemons at a time
+        
     for (var i=0; i <5;i++)
     {
         const pokeUrl = pokeName[i].url;
@@ -30,7 +31,6 @@ const getPoke = async pokeGivenData =>
         for (var j=0; j < moves.length; j++) 
             {
                 pokeMove +=moves[j].move.name[0].toUpperCase()+moves[j].move.name.slice(1)+", ";
-
             }
         let temp ="";
 
@@ -51,43 +51,39 @@ const getPoke = async pokeGivenData =>
 
         const pokeInnerHTML = 
         `<div class="img-container">
-        <table class="table">
-        <div class="row">
-        <div class="col-3"><h5><b>Details</b></h5></div>
-        <div class="col-9"><h5><b>Information</b></h5></div>
-        </div>
-        <tbody class="table">
-        <div class="row">
-        <td class="col-3" ><b>${index})</b></td>
-        <td class="col-9" id="img" ><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${index}.png" alt="img">
-        </td>
-        </div>
-        <tr>
-        <td class="col-3"><b>Name:</b></td>
-        <td class="col-9"><b>${Name}.</b></td>
-        </tr>
-        <tr>
-        <td class="col-3"><b>Weight:</b></td>
-        <td class="col-9"><b>${weight} Kg.</b></td>
-        </tr>
-        <tr>
-        <td class="col-3"><b>Ability:</b></td>
-        <td class="col-9"><b>${temp} only.</b></td>
-        </tr>
-        <tr>
-        <td class="col-msm-3"><b>Moves:</b></td>
-        <td class="col-sm-9 p-2"><b>${pokeMove}etc.</b></td>
-        </tr>
-        </tbody>
-        </table>
-        </div>
-        `;
+                <table class="table">
+                        <div class="row">
+                                <div class="col-3"><h5><b>Details</b></h5></div>
+                                <div class="col-9"><h5><b>Information</b></h5></div>
+                        </div>
+                        <tbody class="table">
+                                <div class="row">
+                                        <td class="col-3" ><b>${index})</b></td>
+                                        <td class="col-9" id="img" ><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${index}.png" alt="img"></td>
+                                </div>
+                                <tr>
+                                        <td class="col-3"><b>Name:</b></td>
+                                        <td class="col-9"><b>${Name}.</b></td>
+                                </tr>
+                                <tr>
+                                        <td class="col-3"><b>Weight:</b></td>
+                                        <td class="col-9"><b>${weight} Kg.</b></td>
+                                </tr>
+                                <tr>
+                                        <td class="col-3"><b>Ability:</b></td>
+                                        <td class="col-9"><b>${temp} only.</b></td>
+                                </tr>
+                                <tr>
+                                        <td class="col-msm-3"><b>Moves:</b></td>
+                                        <td class="col-sm-9 p-2"><b>${pokeMove}etc.</b></td>
+                                </tr>
+                        </tbody>
+                </table>
+        </div>`;
         
         pokeElement.innerHTML=pokeInnerHTML;
         po_container.appendChild(pokeElement);
-
     } 
-    
 }
 
 // calling the takePuke func
