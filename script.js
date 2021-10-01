@@ -1,35 +1,41 @@
-var url = `https://pokeapi.co/api/v2/pokemon?offset=0&limit=5`;
-var lastUrl = `https://pokeapi.co/api/v2/pokemon?offset=50&limit=5`;
-const po_container = document.querySelector('.po_container');
-var pokeElement=document.createElement('div');
+let url = `https://pokeapi.co/api/v2/pokemon?offset=0&limit=5`;
+let lastUrl = `https://pokeapi.co/api/v2/pokemon?offset=50&limit=5`;
+const po_container = document.querySelector('.po_container');//Selecting the class of po_container
+let pokeElement=document.createElement('div');// creating  div and adding needed values to it.
 let pokeInnerHTML =" ";
+let pokeGivenData =" ";
+
+
 
 const takePoke = async () => {
         await getPoke();
 }
 
+
+
+
 const getPoke = async pokeGivenData => {
     const res = await fetch(url);
-    const pokemonDetails = await res.json();
+    const pokemonDetails = await res.json();//Using .json() to convert given text data into data objects as attribute-value pair and arrys.
     const pokeName =pokemonDetails.results;
     
     // creating a loop to print all five pokemons at a time
  
-    for (var i=0; i <5; i++) 
+    for (let i=0; i <5; i++) 
     {
         const pokeUrl = pokeName[i].url;
         const Name =pokeName[i].name.toUpperCase(); // Getting name of the pokemon
         const res1 = await fetch(pokeUrl);
-        const newUrl = await res1.json();
+        const newUrl = await res1.json();//Using .json() to convert given text data into data objects as attribute-value pair and arrys.
         const pokeData = newUrl.abilities;
         const moves = newUrl.moves;
-        var index = newUrl.id;
+        const index = newUrl.id;
         const weight = newUrl.weight;
         let pokeMove = "";
 
         // using for loop to collect all Moves Data
 
-        for (var j=0; j < moves.length; j++) 
+        for (let j=0; j < moves.length; j++) 
             {
                 pokeMove +=moves[j].move.name[0].toUpperCase()+moves[j].move.name.slice(1)+", ";
             }
@@ -37,15 +43,12 @@ const getPoke = async pokeGivenData => {
 
         // using for loop to collect all Ability Data
 
-        for (var a=0; a < pokeData.length; a++)
+        for (let a=0; a < pokeData.length; a++)
             {
                 temp+=pokeData[a].ability.name[a].toUpperCase()+pokeData[a].ability.name.slice(1) + ", ";
             }
                 
-        // creating  div and adding needed values to it.
         
-        pokeElement.setAttribute('class','collectedData');
-        document.getElementsByClassName("img-container");
         
         // Creating HTML for the card data
 
@@ -88,8 +91,15 @@ const getPoke = async pokeGivenData => {
     } 
 }
 
+
+
+
 // calling the takePuke func
 takePoke();
+
+
+
+
 
 // Creating func for previous onclick event
 const prePoka = async pokeGivenData => 
@@ -109,6 +119,12 @@ const prePoka = async pokeGivenData =>
             }
     }
    
+
+
+
+
+
+
 // Creating func for next onclick event
 const nextPoka = async pokeGivenData => 
     {   
