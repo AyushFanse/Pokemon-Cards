@@ -9,6 +9,7 @@ img[alt="png"]{
     width: 410px;
 }
 tr,td{
+    color:rgb(39, 16, 59);
     font-family: Georgia, serif;
     font-weight: bold;
     border: 2px solid rgb(88, 49, 124);
