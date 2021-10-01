@@ -26,7 +26,7 @@ const takePoke = async () => {
 const getPoke = async pokeGivenData => {
 
     //using catch to checking for errors.
-    const res = await fetch(url).catch(error => {alert(`There is some problem while fatching the URL: ${url}`)});
+    const res = await fetch(url).catch(error => {alert(`There is some problem while fatching the Url: ${url}`)});
 
     //Using .json() to convert given text data into data objects as attribute-value pair and arrys.
     const pokemonDetails = await res.json();
@@ -41,7 +41,7 @@ const getPoke = async pokeGivenData => {
         const Name =pokeName[i].name.toUpperCase();
 
         //using catch to checking for errors.
-        const res1 = await fetch(pokeUrl).catch(error => {alert(`There is some problem while fatching the URL: ${url}`)}); 
+        const res1 = await fetch(pokeUrl).catch(error => {alert(`There is some problem while fatching the Url: ${url}`)}); 
 
         //Using .json() to convert given text data into data objects as attribute-value pair and arrys.
         const newUrl = await res1.json(); 
@@ -120,7 +120,7 @@ const prePoka = async pokeGivenData =>
         url=pokemonDetails.previous;
         if(pokemonDetails.previous==null)
             {
-                alert("Your are already on first page")
+                alert(`Your are already on first page...!!!`)
                 url = `https://pokeapi.co/api/v2/pokemon?offset=0&limit=5`;
             }
         else
@@ -139,7 +139,7 @@ const nextPoka = async pokeGivenData =>
         url=pokemonDetails.next;
         if(pokemonDetails.next>=lastUrl)
             {
-                alert(`Your are on the last page..!`)
+                alert(`Your are on the last page...!!!`)
             }
         else
             { 
