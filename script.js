@@ -17,7 +17,7 @@ let pokeGivenData =" ";
 const takePoke = async () => {
 
     //Using .catch() function to catch the errors.
-    await getPoke().catch(error => {alert(`Their is some problem in loading...!!! Please wait for a while.`)});;
+    await getPoke().catch(error => {alert(`There is some problem in loading...!!! Please wait for a while.`)});;
 }
 
 
@@ -26,7 +26,7 @@ const takePoke = async () => {
 const getPoke = async pokeGivenData => {
 
     //using catch to checking for errors.
-    const res = await fetch(url).catch(error => {alert(`Their is some problem while fatching the ${url}`)});
+    const res = await fetch(url).catch(error => {alert(`There is some problem while fatching the URL: ${url}`)});
 
     //Using .json() to convert given text data into data objects as attribute-value pair and arrys.
     const pokemonDetails = await res.json();
@@ -41,7 +41,7 @@ const getPoke = async pokeGivenData => {
         const Name =pokeName[i].name.toUpperCase();
 
         //using catch to checking for errors.
-        const res1 = await fetch(pokeUrl).catch(error => {alert(`Their is some problem while fatching the ${url}`)}); 
+        const res1 = await fetch(pokeUrl).catch(error => {alert(`There is some problem while fatching the URL: ${url}`)}); 
 
         //Using .json() to convert given text data into data objects as attribute-value pair and arrys.
         const newUrl = await res1.json(); 
