@@ -6,7 +6,9 @@ img[alt="img"]{
     width:200px;
     margin-left:50px;
 }
-
+img[alt="png"]{
+    width: 500px;
+}
 td,tr{
     font-family: Georgia, serif;
     font-weight: bold;
