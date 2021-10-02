@@ -12,15 +12,11 @@ let pokeElement=document.createElement('div');
 let pokeInnerHTML =" ";
 let pokeGivenData =" ";
 
-
-
 const takePoke = async () => {
 
     //Using .catch() function to catch the errors.
     await getPoke().catch(error => {alert(`There is some problem in loading...!!! Please wait for a while.`)});;
 }
-
-
 
 //using async-await.
 const getPoke = async pokeGivenData => {
@@ -128,7 +124,6 @@ const prePoka = async pokeGivenData =>
                 takePoke();
             }
     }
-   
 
 // Creating func for next onclick event.
 const nextPoka = async pokeGivenData => 
